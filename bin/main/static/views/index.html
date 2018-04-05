@@ -3,16 +3,27 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Todo App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="/angular.min.js"></script>
 <script src="/todo.js"></script>
 </head>
-<body ng-app="todoApp">
-<h1>Todo List</h1>
-<div ng-controller="todoCtrl" ng-init="getTodoList()">
+<body ng-app="todoApp" ng-controller="todoCtrl" ng-init="getTodoList()">
 
-Add ToDo : <input type="text" name="todoDec" ng-model="todo.todoDesc">
-<h1 ng-repeat="todo in todoList">{{todo.todoItemId}} - {{todo.todoDesc}} - <span ng-click="updateTodo(todo)">{{todo.todoCompleted}}</span> - <span ng-click="deleteTodo(todo.todoItemId)">X</span></h1>
-<input type="button" ng-click="addTodo()" value="Add">
-</div>
+<h1>Todo List</h1>
+<ul>
+<li>Add ToDo : <input type="text" name="todoDec" ng-model="todo.todoDesc"><input type="button" ng-click="addTodo()" value="Add">
+</li>
+</ul>
+
+<ul class="list-group">
+  <li class="list-group-item justify-content-between" ng-repeat="todo in todoList">
+    <span ng-if="todo.todoCompleted" style="text-decoration: line-through;">{{todo.todoDesc}}</span>
+    <span ng-if="!todo.todoCompleted">{{todo.todoDesc}}</span>
+    <span ng-if="todo.todoCompleted" class="badge badge-default badge-pill" ng-click="updateTodo(todo)" ng-if="!todo.todoCompleted" style="cursor:pointer;">Completed</span>
+    <span ng-if="!todo.todoCompleted" class="badge badge-default badge-pill" ng-click="updateTodo(todo)" ng-if="!todo.todoCompleted" style="cursor:pointer;">Pending</span>
+    <span class="badge badge-default badge-pill" ng-click="deleteTodo(todo.todoItemId)" ng-if="!todo.todoCompleted" style="cursor:pointer;">X</span>
+  </li>
+</ul>
 </body>
 </html>
