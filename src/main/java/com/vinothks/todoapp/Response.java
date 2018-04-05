@@ -1,9 +1,15 @@
 package com.vinothks.todoapp;
 
-public class Response {
+import java.io.Serializable;
 
+public class Response implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private boolean success;
-	private Object data;
+	private Object customData;
 	private String message;
 	
 	public boolean isSuccess() {
@@ -12,11 +18,11 @@ public class Response {
 	public void setSuccess(boolean success) {
 		this.success = success;
 	}
-	public Object getData() {
-		return data;
+	public Object getCustomData() {
+		return customData;
 	}
-	public void setData(Object data) {
-		this.data = data;
+	public void setCustomData(Object customData) {
+		this.customData = customData;
 	}
 	public String getMessage() {
 		return message;

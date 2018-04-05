@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Todo App</title>
+<script src="/angular.min.js"></script>
+<script src="/todo.js"></script>
+</head>
+<body ng-app="todoApp">
+<h1>Todo List</h1>
+<div ng-controller="todoCtrl" ng-init="getTodoList()">
+
+Add ToDo : <input type="text" name="todoDec" ng-model="todo.todoDesc">
+<h1 ng-repeat="todo in todoList">{{todo.todoItemId}} - {{todo.todoDesc}} - <span ng-click="updateTodo(todo)">{{todo.todoCompleted}}</span> - <span ng-click="deleteTodo(todo.todoItemId)">X</span></h1>
+<input type="button" ng-click="addTodo()" value="Add">
+</div>
+</body>
+</html>

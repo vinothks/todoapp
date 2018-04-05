@@ -16,7 +16,7 @@ public class TodoItem {
 	
 	private String todoDesc;
 	
-	private String todoStatus;
+	private boolean todoCompleted;
 
 	public Long getTodoItemId() {
 		return todoItemId;
@@ -34,12 +34,12 @@ public class TodoItem {
 		this.todoDesc = todoDesc;
 	}
 
-	public String getTodoStatus() {
-		return todoStatus;
+	public boolean isTodoCompleted() {
+		return todoCompleted;
 	}
 
-	public void setTodoStatus(String todoStatus) {
-		this.todoStatus = todoStatus;
+	public void setTodoCompleted(boolean todoCompleted) {
+		this.todoCompleted = todoCompleted;
 	}
 	
 }
