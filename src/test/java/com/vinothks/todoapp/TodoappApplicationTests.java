@@ -12,5 +12,10 @@ public class TodoappApplicationTests {
 	@Test
 	public void contextLoads() {
 	}
+	
+	@Test
+	public void testApp() {
+		System.out.println("Hello Todo App");
+	}
 
 }
